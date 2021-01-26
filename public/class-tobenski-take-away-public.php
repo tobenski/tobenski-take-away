@@ -95,7 +95,7 @@ class Tobenski_Take_Away_Public {
 	 */
 	public function take_away_page_template( $template ) {
 		// If not take-away page bail early
-		if (is_page( 'take-away' )) : return $template; endif;
+		if (!is_page( 'take-away' )) : return $template; endif;
 		
 		// replace the template file. 
 		return plugin_dir_path( __FILE__ ) . 'partials/tobenski-take-away-page-template.php';
