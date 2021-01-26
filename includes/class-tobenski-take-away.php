@@ -101,7 +101,7 @@ class Tobenski_Take_Away {
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
-		 * core plugin.
+		 * core plugin. 
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-tobenski-take-away-loader.php';
 
@@ -156,6 +156,8 @@ class Tobenski_Take_Away {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'init', $plugin_admin, 'register_take_away_cpt' );
+		$this->loader->add_action( 'acf/init', $plugin_admin, 'register_custom_fields');
 
 	}
 
