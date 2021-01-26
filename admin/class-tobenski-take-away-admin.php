@@ -85,6 +85,7 @@ class Tobenski_Take_Away_Admin {
 	{
 		$labels = array(
 			'name'                     => 'Take Away Menuer',
+			'menu_name'				   => 'Take Away',
 			'singular_name'            => 'Take Away Menu',
 			'add_new'                  => 'Tilføj Ny',
 			'add_new_item'             => 'Tilføj Ny Take Away Menu',
