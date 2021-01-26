@@ -46,16 +46,13 @@ class Tobenski_Take_Away_Deactivator {
 		wp_delete_post($take_away_page->ID); // Jeg tror det er sådan.
 		
 		// Recreate the Backup Page created if it existet on activation
-		$page_exists = get_page_by_path(  '/take-away-old/', OBJECT, 'page' );
+		$page_exists = get_page_by_path( '/take-away-old/', ARRAY_A, 'page' );
 
         if( !$page_exists == null ) {
-            // Page exists lets recreate it.
-			wp_update_post(array([
-				'ID' => $page_exists->id,
-				'page_name' => 'take-away',
-				'post_status' => 'published',
-				'post_title' => 'Take Away',
-			]));
+			$page_exists['post_name'] = 'take-away';
+			$page_exists['post_status'] = 'publish';
+			$page_exists['post_title'] = 'Take Away';
+			wp_update_post($page_exists);
         }
 	}
 }
