@@ -125,7 +125,7 @@ class Tobenski_Take_Away_Admin {
 			'menu_icon' => 'dashicons-car',
 			'has_archive' => false,
 			'supports' => array(
-				'title'
+				'title', 'thumbnail',
 			),
 			
 			
@@ -133,6 +133,11 @@ class Tobenski_Take_Away_Admin {
 		register_post_type( 'take_away', $args);
 	}
 
+	/**
+	 * Register the Take Away Custom Fields
+	 *
+	 * @since 1.0.1
+	 */
 	public function register_custom_fields()
 	{
 		if( function_exists('acf_add_local_field_group') ):
@@ -183,6 +188,109 @@ class Tobenski_Take_Away_Admin {
 			endif;
 	}
 
+	/**
+	 * Register Take Away settings page
+	 *
+	 * @return void
+	 */
+	public function register_settings_page()
+	{
+
+		$option_page = acf_add_options_page(array(
+            'page_title'    => __('Take Away Settings'),
+			'menu_title'    => __('Settings'),		
+			'menu_slug'     => 'tobenski-take-away-settings',
+			'parent_slug'	=> 'edit.php?post_type=take_away',
+            'capability'    => 'edit_posts',
+			'redirect'      => false,
+			'update_button' => __('Gem', 'acf'),
+			'updated_message' => __("Instillinger er gemt", 'acf'),
+		));
+		
+		// Settings
+        acf_add_local_field_group(array(
+            'key' => 'group_tob_k1c9hmc5np',
+            'title' => 'Take Away Settings',
+            'fields' => array(
+                array(
+                    'key' => 'field_tob_419yuo5pp8',
+                    'label' => 'Beskrivelses Header',
+                    'name' => 'tobenski_take_away_description_header',
+                    'type' => 'text',
+                    'instructions' => 'Hvad der skal stå som overskrift til beskrivelsen.',
+                    'required' => 1,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '50',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => 'Take Away',
+                    'placeholder' => '',
+				),
+				array(
+                    'key' => 'field_tob_a471lzyppk',
+                    'label' => 'Beskrivelse',
+                    'name' => 'tobenski_take_away_description',
+                    'type' => 'wysiwyg',
+                    'instructions' => 'Beskrivelsen til Take Away siden.',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => "",
+                    'tabs' => 'all',
+                    'toolbar' => 'full',
+                    'media_upload' => 0,
+                    'delay' => 0,
+				),
+				array(
+					'key' => 'field_tob_37czfn1q6b',
+					'label' => 'Top Image',
+					'name' => 'tobenski_take_away_image',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'url',
+					'preview_size' => 'medium',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+				),
+            ),
+            'location' => array(
+                array(
+                    array(
+                        'param' => 'options_page',
+                        'operator' => '==',
+                        'value' => 'tobenski-take-away-settings',
+                    ),
+                ),
+            ),
+            'menu_order' => 0,
+            'position' => 'normal',
+            'style' => 'seamless',
+            'label_placement' => 'top',
+            'instruction_placement' => 'label',
+            'hide_on_screen' => '',
+            'active' => true,
+            'description' => '',
+        ));
+	}
 
 
 }

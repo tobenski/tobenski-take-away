@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Take Away - Det Gamle Posthus
  * Plugin URI:        https://github.com/tobenski/tobenski-take-away
- * Description:       This plugin givee "Det Gamle Posthus" website its Take Away section.
+ * Description:       This plugin provides "Det Gamle Posthus" website its Take-Away section.
  * Version:           1.0.0
  * Author:            Knud Rishøj
  * Author URI:        https://github.com/tobenski/

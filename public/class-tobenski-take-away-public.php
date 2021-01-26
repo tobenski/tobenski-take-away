@@ -76,4 +76,29 @@ class Tobenski_Take_Away_Public {
 
 	}
 
+	/**
+	 * Create the shortcode for displaying the take away menu.
+	 *
+	 * @since 1.0.1
+	 */
+	public function tobenski_take_away_shortcode_func()
+	{
+		return include plugin_dir_path( __FILE__ ) . 'partials/tobenski-take-away-view.php';
+	}
+
+	/**
+	 * Add a page-template to use with the Take-away slug.
+	 *
+	 * @since 1.0.1
+	 * @param string $template [Template location]
+	 * @return string [Template location]
+	 */
+	public function take_away_page_template( $template ) {
+		// If not take-away page bail early
+		if (is_page( 'take-away' )) : return $template; endif;
+		
+		// replace the template file. 
+		return plugin_dir_path( __FILE__ ) . 'partials/tobenski-take-away-page-template.php';
+	}
+
 }

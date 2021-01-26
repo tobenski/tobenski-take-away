@@ -158,7 +158,7 @@ class Tobenski_Take_Away {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'init', $plugin_admin, 'register_take_away_cpt' );
 		$this->loader->add_action( 'acf/init', $plugin_admin, 'register_custom_fields');
-
+		$this->loader->add_action('acf/init', $plugin_admin, 'register_settings_page', 11);
 	}
 
 	/**
@@ -174,6 +174,9 @@ class Tobenski_Take_Away {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_shortcode('tobenski-take-away', $plugin_public, 'tobenski_take_away_shortcode_func');
+
+		$this->loader->add_filter('template_include', $plugin_public, 'take_away_page_template', 99);
 
 	}
 
