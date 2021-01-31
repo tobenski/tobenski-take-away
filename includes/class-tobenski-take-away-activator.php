@@ -43,7 +43,6 @@ class Tobenski_Take_Away_Activator {
 	public static function create_page() {
 		$page = array(
             'post_title' => 'Take Away',
-            'post_content' => '[tobenski-take-away]',
             'post_status' => 'publish',
             'post_author' => 1,
             'post_type' => 'page',
@@ -51,20 +50,10 @@ class Tobenski_Take_Away_Activator {
 		);
 		
 		$page_exists = get_page_by_path(  '/' . $page['post_name'] . '/', ARRAY_A, 'page' );
-		//$page_exists = get_page_by_path(  $page['post_name'], OBJECT, 'page' );
 
         if( $page_exists == null ) {
             // Page doesn't exist, so lets add it
             wp_insert_post( $page );
-        } else {
-			// Page exits - rename it, and add the page
-			$page_exists['post_name'] = 'take-away-old';
-			$page_exists['post_status'] = 'draft';
-			$page_exists['post_title'] = 'Take Away Backup';
-			wp_update_post($page_exists);
-
-			// Now add the new page.
-			wp_insert_post( $page );
 		}
 	}
 

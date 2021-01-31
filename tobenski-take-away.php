@@ -13,10 +13,10 @@
  * @package           Tobenski_Take_Away
  *
  * @wordpress-plugin
- * Plugin Name:       Take Away - Det Gamle Posthus
+ * Plugin Name:       Det Gamle Posthus - Take Away
  * Plugin URI:        https://github.com/tobenski/tobenski-take-away
- * Description:       This plugin provides "Det Gamle Posthus" website its Take-Away section. Shortcode [tobenski-take-away] is avaibel.
- * Version:           1.0.2
+ * Description:       This plugin provides "Det Gamle Posthus" website its Take-Away section.
+ * Version:           1.1.0
  * Author:            Knud Rishøj
  * Author URI:        https://github.com/tobenski/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'TOBENSKI_TAKE_AWAY_VERSION', '1.0.2' );
+define( 'TOBENSKI_TAKE_AWAY_VERSION', '1.1.0' );
 
 /**
  * The code that runs during plugin activation.

@@ -66,17 +66,6 @@ class Tobenski_Take_Away_Public {
 	}
 
 	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/tobenski-take-away-public.js', array( 'jquery' ), $this->version, false );
-
-	}
-
-	/**
 	 * Create the shortcode for displaying the take away menu.
 	 *
 	 * @since 1.0.1
@@ -96,9 +85,10 @@ class Tobenski_Take_Away_Public {
 	public function take_away_page_template( $template ) {
 		// If not take-away page bail early
 		if (!is_page( 'take-away' )) : return $template; endif;
-		
+		//load styles
+		$this->enqueue_styles();
 		// replace the template file. 
-		return plugin_dir_path( __FILE__ ) . 'partials/tobenski-take-away-page-template.php';
+		return plugin_dir_path( __FILE__ ) . 'partials/page-take-away.php';
 	}
 
 }
