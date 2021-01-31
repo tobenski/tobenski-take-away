@@ -13,7 +13,7 @@
  */
 ?>
 <?php get_header(); ?>
-    <section class="flex flex-wrap w-full max-w-full pt-12 pb-6 md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl">
+    <section class="flex flex-wrap w-full max-w-full pb-6 md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl">
         <!-- MENU CARD-->
         <div class="card card-full">
             <div class="card-image">            
